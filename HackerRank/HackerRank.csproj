@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Algorithms\Greedy\ChiefHopper.cs" />
+    <Compile Include="Algorithms\Warmup\BetweenTwoSets.cs" />
     <Compile Include="Algorithms\Warmup\PlusMinus.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

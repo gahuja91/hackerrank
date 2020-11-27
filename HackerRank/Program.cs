@@ -1,4 +1,5 @@
-﻿using HackerRank.Algorithms.Warmup;
+﻿using HackerRank.Algorithms.Greedy;
+using HackerRank.Algorithms.Warmup;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace HackerRank
     {
         static void Main(string[] args)
         {
-            RunTest(typeof(PlusMinus));
+            RunTest(typeof(ChiefHopper));
             Console.ReadKey();
         }
 
