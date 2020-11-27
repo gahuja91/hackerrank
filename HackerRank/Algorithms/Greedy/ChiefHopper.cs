@@ -15,14 +15,14 @@ namespace HackerRank.Algorithms.Greedy
 
             var watch = new System.Diagnostics.Stopwatch();
             watch.Start();
-            int result = chiefHopper(arr);
+            int result = ChiefHopperOptimized(arr);
             watch.Stop();
 
             Console.WriteLine($"Chief Hopper Execution Time: {watch.Elapsed}");
             Console.WriteLine(result);
         }
 
-        public int chiefHopper(int[] arr)
+        private int NonOptimizedChiefHopper(int[] arr)
         {
             var minEnergy = 0;
 
@@ -45,6 +45,43 @@ namespace HackerRank.Algorithms.Greedy
                 }
 
             return minEnergy;
+        }
+
+        private int ChiefHopperOptimized(int[] arr)
+        {
+            int maxHeight = arr.Max();
+
+            int lowestEnergy = 0;
+            int maxEnergy = maxHeight;
+
+            while(lowestEnergy != maxEnergy)
+            {
+                int mid = (lowestEnergy + maxEnergy) / 2;
+                bool canReach = CanCompleteCourse(arr, mid, maxHeight);
+
+                if (canReach)
+                    maxEnergy = mid;
+                else
+                    lowestEnergy = mid + 1;
+            }
+
+            return maxEnergy;
+        }
+
+        private bool CanCompleteCourse(int[] arr, int energy, int maxHeight)
+        {
+            for(int i = 0; i < arr.Length; i++)
+            {
+                energy = (2 * energy) - arr[i];
+
+                if (energy < 0)
+                    return false;
+
+                if (energy > maxHeight)
+                    return true;
+            }
+
+            return true;
         }
     }
 }
